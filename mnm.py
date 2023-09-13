@@ -152,10 +152,8 @@ class MeetingNotesApp:
         if not os.path.exists(os.path.dirname(get_exe_location()) + "/Notes"):
             os.mkdir(os.path.dirname(get_exe_location()) + "/Notes")
         if file_path:
-            messagebox.showinfo('yeah', file_path)
             with open(f"{file_path}", "w") as file:
                 # Writing the meeting title at the top
-                messagebox.showinfo('yeah', "HERE")
                 if meeting_title:
                     file.write(f"# Meeting: {meeting_title} -- {formated_date_slash}\n\n")
                 file.write("## Individual Notes\n")
@@ -163,7 +161,6 @@ class MeetingNotesApp:
                     file.write(f"### {name}\n{notes}\n\n")
                 additional_notes = self.additional_notes_text.get("1.0", tk.END).strip()
                 file.write("## Additional Information\n{}".format(additional_notes))
-                messagebox.showinfo('yeah', "HEREasdasdas")
             messagebox.showinfo("Saved", f"Notes saved to {meeting_title}_{formated_date_underscore}.md! at {os.path.dirname(get_exe_location()) + '/Notes'}")
             open_file_explorer(os.path.dirname(get_exe_location()) + "/Notes")
             # Clear the dictionary, input fields, and listbox
